@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Project-Final-JSA32-hoa/css/style_fp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Chessmaster</title>
+</head>
+<body style="background-color:#302e2b ;" onload="back()" >
+    <div class="layout-base" >
+        <button onclick="scrollup()" style="border-radius: 50px; width: 50px; height: 50px; position: fixed ; right: 30px; bottom: 30px;">top</button>
+        <script src="/Project-Final-JSA32-hoa/javascript/Sign_Up.js">
+            function scrollup() {
+                document.documentElement.scrollTop = 0;
+            }
+            function back(){
+                let back = "back" + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(back) == 0) {
+                        if (c.substring(back.length, c.length)=="1"){
+                            document.getElementById("n1").style.top="1000px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="2"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="1000px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="3"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="1000px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+
+                        }
+                        else if (c.substring(back.length, c.length)=="4"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="1000px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="h"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="1000px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="m"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="1000px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="a"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="1000px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="b"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="1000px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="bor"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="1000px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="mi"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="1000px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="5"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="1000px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="6"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="1000px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="me"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="1000px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="7"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="1000px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="blog"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="1000px"
+                            document.getElementById("nmag_new").style.top="-500px"
+                        }
+                        else if (c.substring(back.length, c.length)=="mag_new"){
+                            document.getElementById("n1").style.top="-500px"
+                            document.getElementById("n2").style.top="-500px"
+                            document.getElementById("n3").style.top="-500px"
+                            document.getElementById("n4").style.top="-500px"
+                            document.getElementById("nh").style.top="-500px"
+                            document.getElementById("nm").style.top="-500px"
+                            document.getElementById("na").style.top="-500px"
+                            document.getElementById("nb").style.top="-500px"
+                            document.getElementById("nbor").style.top="-500px"
+                            document.getElementById("nmi").style.top="-500px"
+                            document.getElementById("n5").style.top="-500px"
+                            document.getElementById("n6").style.top="-500px"
+                            document.getElementById("nme").style.top="-500px"
+                            document.getElementById("n7").style.top="-500px"
+                            document.getElementById("nblog").style.top="-500px"
+                            document.getElementById("nmag_new").style.top="1000px"
+                        }
+                    }
+                }
+                return "";
+            }
+            function setCookie() {
+                console.log(document.cookie);
+                const cvalue = document.getElementById("su_u").value;
+                const cvalue_2 = document.getElementById("su_p").value;
+                let user = getCookie_u(cvalue,cvalue);
+                let passn = getCookie_p(cvalue_2,cvalue_2);
+                if (user != "" && passn != ""){
+                    alert("you've done log in before, please sign in");
+                }
+                else{
+                    if(cvalue == "" || cvalue_2 == ""){
+                        alert("please enter full information");
+                    }
+                    else{
+                        const d = new Date();
+                        d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                        let expires = "expires="+d.toUTCString();
+                        document.cookie = "state" + "=" + "true" + ";" + expires + ";path=/";
+                        document.cookie = cvalue + "=" + cvalue + ";" + expires + ";path=/";
+                        document.cookie = cvalue_2 + "=" + cvalue_2 + ";" + expires + ";path=/"; 
+                        alert("Hello " + cvalue);
+                        document.cookie = "u" + "=" + cvalue + ";" + expires + ";path=/";
+                    }
+                }
+            }
+
+            function getCookie_u(cname,cname_2) {
+                let name = cname + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        if (c.substring(name.length, c.length)==cname_2){
+                            console.log(document.cookie);
+                            return c.substring(name.length, c.length);
+                        }
+                    }
+                }
+                return "";
+            }
+
+            function getCookie_p(cpass,cpass_2) {
+                let pass = cpass + "=";
+                let csa = document.cookie.split(';');
+                for(let i = 0; i < csa.length; i++) {
+                    let cs = csa[i];
+                    while (cs.charAt(0) == ' ') {
+                        cs = cs.substring(1);
+                    }
+                    if (cs.indexOf(pass) == 0) {
+                        if (cs.substring(pass.length, cs.length)==cpass_2){
+                            return cs.substring(pass.length, cs.length);
+                        }
+                    }
+                }
+                return "";
+            }
+        </script>
+        <div class="sidebar-base" style="background-color: #262522;">
+            <div id="bruh" class="navigation-component">
+                <div class="nav-top-menu">
+                    <div class="menu">
+                        <a class="logo" href="/Project-Final-JSA32-hoa/html/index_fp.html" target="_self">
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse.png" alt="home" width="50px">
+                        </a>
+                        <div class="menu_2">
+                            <a href="#" class="am">menu</a>
+                            <div class="mini_menu">
+                                <a href="/Project-Final-JSA32-hoa/html/index_fp.html#skibidi">Top</a>
+                                <a href="/Project-Final-JSA32-hoa/html/index_fp.html#Info" style="font-size: 15px;">recommendation</a>
+                            </div>
+                        </div>
+                        
+                    </div>
+                    <div class="pcp">
+                        <a class="img_2" href="/Project-Final-JSA32-hoa/html/index_fp_2.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse_2.png" alt="home" width="50px">
+                        </a>
+                        <div class="pcp_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_2.html">present chess players</a>
+                        </div>
+                    </div>
+                    <div class="pacp">
+                        <a class="img_3" href="/Project-Final-JSA32-hoa/html/index_fp_3.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse_3" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="pacp_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" class="pacp_3">past chess players</a>
+                        </div>
+                    </div>
+                    <div class="shop">
+                        <a class="img_4" href="/Project-Final-JSA32-hoa/html/index_fp_4.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/shop.png" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="shop_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" class="shop_3">shop</a>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <a class="img_5" href="/Project-Final-JSA32-hoa/html/index_fp_5.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/news.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="news_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_5.html" class="news_3">news</a>
+                        </div>
+                    </div>
+                    <div class="rankgh">
+                        <a class="img_6" href="/Project-Final-JSA32-hoa/html/index_fp_6.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/rank.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="rankgh_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_6.html" class="rankgh_3">rank</a>
+                        </div>
+                    </div>
+                    <div class="bloggh">
+                        <a class="img_7" href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/blog.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="bloggh_2">
+                            <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" class="rankgh_3" style="height: 25px;">blog</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bottom-menu">
+                   <a class="rick" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                        <img src="/Project-Final-JSA32-hoa/other/image/rick.png" alt="home" width="50px">
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="container-base">
+            <header  id="skibidi" class="top" >
+                <div class="name">
+                    <a href="/Project-Final-JSA32-hoa/html/index_fp.html" style="text-decoration: none; color: orange;">
+                        <span style="font-size: 30px;"><b>chessmaster</b></span>
+                    </a>
+                </div>
+                <div class="scroll">
+                        <div class="scrolldown">
+                            <button class="scrollbtn">list</button>
+                            <div class="content">
+                                <div class="a1">
+                                    <div class="a1_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Magnus_Carlsen.html">Magnus Carlsen</a>
+                                    </div>
+                                </div>
+                                <div class="a2">
+                                    <div class="a2_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Hikaru_Nakamura.html">Hikaru Nakamura</a>
+                                    </div>
+                                </div>
+                                <div class="a3">
+                                    <div class="a3_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Arjun_Erigaisi.html">Arjun Erigaisi</a>
+                                    </div>
+                                </div>
+                                <div class="a4">
+                                    <div class="a4_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">Bobby Fischer</a>
+                                    </div>
+                                </div>
+                                <div class="a5">
+                                    <div class="a5_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">Mikhail Tal</a>
+                                    </div>
+                                </div>
+                                <div class="a6">
+                                    <div class="a6_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Boris_Spassky.html">Boris Spassky</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </header>
+            <main class="si">
+                <div class="info_spa" style="color: darkgoldenrod; background-color: #262522; padding: 10px; border-radius: 10px;">
+                    <h1 style="font-weight: 200;">Sign Up</h1>
+                    <fieldset style="margin-top: 30px">
+                        <form style="justify-items: left;" id="Sign_Up_form">
+                            <legend style="text-align: start;">Username</legend>
+                            <input type="text" name="" id="su_u" style="margin-bottom: 30px;" required>
+                            <legend style="text-align: start;">Password</legend>
+                            <input type="password" name="" id="su_p" style="margin-bottom: 10px;" required>
+                                <button id="n1" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: rgb(41, 13, 13);" href="/Project-Final-JSA32-hoa/html/index_fp.html">
+                                        done
+                                    </a>
+                                </button>                                
+                                <button id="n2" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/index_fp_2.html">
+                                        done
+                                    </a>
+                                </button>                                
+                                <button id="n3" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/index_fp_3.html">
+                                        done
+                                    </a>
+                                </button>                                
+                                <button id="n4" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/index_fp_4.html">
+                                        done
+                                    </a>
+                                </button>                                
+                                <button id="nh" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/grand_info.html/Hikaru_Nakamura.html">
+                                        done
+                                    </a>
+                                </button>                                
+                                <button id="nm" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/grand_info.html/Magnus_Carlsen.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="na" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/grand_info.html/Arjun_Erigaisi.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="nb" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="nmi" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/grand_info.html/Mikhail_Tal.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="nbor" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/grand_info.html/Boris_Spassky.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="n5" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/index_fp_5.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="n6" class="m" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/index_fp_6.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="nme" class="me" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/author_information.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="n7" class="me" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="nblog" class="me" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/blog/blog_create.html">
+                                        done
+                                    </a>
+                                </button>
+                                <button id="nmag_new" class="me" style="position: absolute;margin-top:-500px;right: 780px;">
+                                    <a onclick="return setCookie()" style="text-decoration: none;color: black;" href="/Project-Final-JSA32-hoa/html/news/news1.html">
+                                        done
+                                    </a>
+                                </button>                                  
+                            <button style="position: absolute;margin-top: 310px;right: 780px;">
+                                <a href="/Project-Final-JSA32-hoa/html/Si_Su/Sign_In.html" style="color: black;text-decoration: none;">
+                                    Sign In
+                                </a>
+                            </button>
+                        </form>
+                    </fieldset>
+                </div>
+            </main>
+            <footer class="other_gm">
+                <div class="author">
+                    <a href="/Project-Final-JSA32-hoa/html/author_information.html" style="color: gray; text-decoration: none;"> author information</a>
+                </div>
+                <nav class="sm">
+                    <ul class="nav">
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/fb.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/in.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/re.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/ti.png" alt="">
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+            <div class="year" style="display: flex; flex-direction: row-reverse; margin-bottom: 15px; margin-right: 15px;">
+                <span>@2025 Trịnh Thế Thái Hòa</span>     
+            </div>
+        </div>
+    </div>
+</body>
+</html>

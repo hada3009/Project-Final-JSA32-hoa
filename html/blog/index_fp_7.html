@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Project-Final-JSA32-hoa/css/style_fp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Chessmaster</title>
+</head>
+<body style="background-color:#302e2b ;" onload="check();mailcheck();blog_show()">
+    <div class="layout-base" >
+        <button onclick="scrollup()" style="border-radius: 50px; width: 50px; height: 50px; position: fixed ; right: 30px; bottom: 30px;">top</button>
+        <script>
+            function scrollup() {
+                document.documentElement.scrollTop = 0;
+            }
+            function next(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "back" + "=" + "7" + ";" + expires + ";path=/"
+            }
+            function log_out(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "state" + "=" + "false" + ";" + expires + ";path=/";
+                let h=check
+            }
+            function check(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                let state = getstate();
+                let u = getCookie_u_now();
+                if (state=="true"){
+                    document.getElementById("acc").style.position="static"
+                    document.getElementById("Si_Su").style.position="absolute"
+                    document.getElementById("Si_Su").style.top="-50px"
+                    document.getElementById("it").innerHTML=u
+                }
+                else if(state=="false"){
+                    document.getElementById("Si_Su").style.position="static"
+                    document.getElementById("acc").style.position="absolute"
+                    document.getElementById("acc").style.top="-50px"
+                }
+            }
+            function getstate() {
+                let newstate = "state" + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(newstate) == 0) {
+                        if (c.substring(newstate.length, c.length)=="true"){
+                            return "true"
+                        }
+                        else{
+                            return "false"
+                        }
+                    }
+                }
+                return "false";
+            }
+            function getCookie_u_now() {
+                let name = "u" + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            // review
+            function getCookie_t_now() {
+                let text_m = "re1" + "=";
+                let cta = document.cookie.split(';');
+                for(let i = 0; i < cta.length; i++) {
+                    let ct = cta[i];
+                    while (ct.charAt(0) == ' ') {
+                        ct = ct.substring(1);
+                    }
+                    if (ct.indexOf(text_m) == 0) {
+                        return ct.substring(text_m.length, ct.length);
+                    }
+                }
+                return "";
+            }
+            function mailcheck(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                let state_mail = mailstate();
+                let t_mail = getCookie_t_now();
+                if (state_mail=="false"){
+                    document.getElementById("mailing_1").style.position="absolute"
+                    document.getElementById("mailing_1").style.top="-400px"
+                }
+                else if(state_mail=="true"){
+                    document.getElementById("mailing_1").style.position="relative"
+                    document.getElementById("mailing_1").style.top="10px"
+                    document.getElementById("mail_1").innerHTML=t_mail
+                }
+            }
+            function mailstate(){
+                let mail = "b1" + "=";
+                let cga = document.cookie.split(';');
+                for(let i = 0; i < cga.length; i++) {
+                    let cg = cga[i];
+                    while (cg.charAt(0) == ' ') {
+                        cg = cg.substring(1);
+                    }
+                    if (cg.indexOf(mail) == 0) {
+                        if (cg.substring(mail.length, cg.length)=="true"){
+                            return "true"
+                        }
+                        else{
+                            return "false"
+                        }
+                    }
+                }
+                return "";
+
+            }
+            function review(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                const re = document.getElementById("review").value;
+                if (re == ""){
+                    alert("please type something")
+                    return ""
+                }
+                document.cookie = "re1" + "=" + re + ";" + expires + ";path=/";
+                document.cookie = "b1" + "=" + true + ";" + expires + ";path=/";
+                let gfc = mailcheck()
+            }
+            function delete_review(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "b1" + "=" + false + ";" + expires + ";path=/";
+                let gfc = mailcheck()
+            }
+            // blog_delete1
+            function delete_blog1(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "blog1" + "=" + "false" + ";" + expires + ";path=/";
+                document.cookie = "b1" + "=" + "false" + ";" + expires + ";path=/";
+                d1=blog_show()
+            }
+            // blog_delete1
+            function delete_blog2(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "blog2" + "=" + "false" + ";" + expires + ";path=/";
+                document.cookie = "b2" + "=" + "false" + ";" + expires + ";path=/";
+                d2=blog_show()
+            }
+            // blog_delete1
+            function delete_blog3(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "blog3" + "=" + "false" + ";" + expires + ";path=/";
+                document.cookie = "b3" + "=" + "false" + ";" + expires + ";path=/";
+                d3=blog_show()
+            }
+            // blog_delete1
+            function delete_blog4(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "blog4" + "=" + "false" + ";" + expires + ";path=/";
+                document.cookie = "b4" + "=" + "false" + ";" + expires + ";path=/";
+                d4=blog_show()
+            }
+            // blog_show
+            function blog_show(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                let blognum = blogcheck()
+                let t1 = ta1();
+                let t2 = ta2();
+                let t3 = ta3();
+                let t4 = ta4();
+                let c1 = ca1();
+                let c2 = ca2();
+                let c3 = ca3();
+                let c4 = ca4();
+                document.getElementById("t1").innerHTML=t1
+                document.getElementById("t2").innerHTML=t2
+                document.getElementById("t3").innerHTML=t3
+                document.getElementById("t4").innerHTML=t4
+                document.getElementById("c1").innerHTML=c1
+                document.getElementById("c2").innerHTML=c2
+                document.getElementById("c3").innerHTML=c3
+                document.getElementById("c4").innerHTML=c4
+                if (blognum=="0000"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("n_blog").style.minHeight="485px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"  
+                }
+                else if (blognum=="0001"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="100px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="485px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="0010"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="100px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="485px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="0011"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="100px"
+                    document.getElementById("big_blog4").style.top="500px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="885px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="0100"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="100px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="485px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                    
+                }
+                else if (blognum=="0101"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="100px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="500px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="885px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                    
+                }
+                else if (blognum=="0110"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="100px"
+                    document.getElementById("big_blog3").style.top="500px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="885px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="0111"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="-500px"
+                    document.getElementById("big_blog2").style.top="100px"
+                    document.getElementById("big_blog3").style.top="500px"
+                    document.getElementById("big_blog4").style.top="900px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="1285px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1000"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="485px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                    
+                }
+                else if (blognum=="1001"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="500px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="885px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1010"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="500px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="885px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1011"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="-500px"
+                    document.getElementById("big_blog3").style.top="500px"
+                    document.getElementById("big_blog4").style.top="900px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="1285px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1100"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="500px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="885px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1101"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="500px"
+                    document.getElementById("big_blog3").style.top="-500px"
+                    document.getElementById("big_blog4").style.top="900px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="1285px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1110"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="500px"
+                    document.getElementById("big_blog3").style.top="900px"
+                    document.getElementById("big_blog4").style.top="-500px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("n_blog").style.minHeight="1285px"
+                    document.getElementById("blog").style.position="static"
+                    document.getElementById("blog_full").style.position="absolute"
+                    document.getElementById("blog_full").style.top="-50px"
+                }
+                else if (blognum=="1111"){
+                    document.getElementById("big_blog1").style.position="absolute"
+                    document.getElementById("big_blog2").style.position="absolute"
+                    document.getElementById("big_blog3").style.position="absolute"
+                    document.getElementById("big_blog4").style.position="absolute"
+                    document.getElementById("big_blog1").style.top="100px"
+                    document.getElementById("big_blog2").style.top="500px"
+                    document.getElementById("big_blog3").style.top="900px"
+                    document.getElementById("big_blog4").style.top="1300px"
+                    document.getElementById("bl_1").style.top="350px"
+                    document.getElementById("bl_2").style.top="350px"
+                    document.getElementById("bl_3").style.top="350px"
+                    document.getElementById("bl_4").style.top="350px"
+                    document.getElementById("bl_4").style.marginBottom="60px"
+                    document.getElementById("n_blog").style.Height="1685px"
+                    document.getElementById("blog_full").style.position="static"
+                    document.getElementById("blog").style.position="absolute"
+                    document.getElementById("blog").style.top="-50px"
+                }
+                
+            }
+            // blog1_1
+            function ta1(){
+                let title1 = "title1" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(title1) == 0) {
+                        return cti.substring(title1.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ta2(){
+                let title2 = "title2" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(title2) == 0) {
+                        return cti.substring(title2.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ta3(){
+                let title3 = "title3" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(title3) == 0) {
+                        return cti.substring(title3.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ta4(){
+                let title4 = "title4" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(title4) == 0) {
+                        return cti.substring(title4.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ca1(){
+                let content1 = "content1" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(content1) == 0) {
+                        return cti.substring(content1.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ca2(){
+                let content2 = "content2" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(content2) == 0) {
+                        return cti.substring(content2.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ca3(){
+                let content3 = "content3" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(content3) == 0) {
+                        return cti.substring(content3.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function ca4(){
+                let content4 = "content4" + "=";
+                let ctia = document.cookie.split(';');
+                for(let i = 0; i < ctia.length; i++) {
+                    let cti = ctia[i];
+                    while (cti.charAt(0) == ' ') {
+                        cti = cti.substring(1);
+                    }
+                    if (cti.indexOf(content4) == 0) {
+                        return cti.substring(content4.length, cti.length);
+                    }
+                }
+                return "";
+            }
+            function blogcheck(){
+                let blog1 = "blog1" + "=";
+                let blog2 = "blog2" + "=";
+                let blog3 = "blog3" + "=";
+                let blog4 = "blog4" + "=";
+                let cba = document.cookie.split(';');
+                for(let i = 0; i < cba.length; i++) {
+                    let cb = cba[i];
+                    while (cb.charAt(0) == ' ') {
+                        cb = cb.substring(1);
+                    }
+                    if (cb.indexOf(blog1) == 0) {
+                        if (cb.substring(blog1.length, cb.length)=="true"){
+                            // blog1_2
+                            for(let i = 0; i < cba.length; i++) {
+                                let cb = cba[i];
+                                while (cb.charAt(0) == ' ') {
+                                    cb = cb.substring(1);
+                                }
+                                if (cb.indexOf(blog2) == 0) {
+                                    if (cb.substring(blog2.length, cb.length)=="true"){
+                                        // blog1_3_1
+                                        for(let i = 0; i < cba.length; i++) {
+                                            let cb = cba[i];
+                                            while (cb.charAt(0) == ' ') {
+                                                cb = cb.substring(1);
+                                            }
+                                            if (cb.indexOf(blog3) == 0) {
+                                                if (cb.substring(blog3.length, cb.length)=="true"){
+                                                    // blog1_4_1
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "1111"
+                                                            }
+                                                            else{
+                                                                return "1110"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_1
+                                                }
+                                                else{
+                                                    // blog1_4_2
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "1101"
+                                                            }
+                                                            else{
+                                                                return "1100"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_2
+                                                }
+                                            }
+                                        }
+                                        return "";
+                                        // blog1_3_1
+                                    }
+                                    else{
+                                        // blog1_3_2
+                                        for(let i = 0; i < cba.length; i++) {
+                                            let cb = cba[i];
+                                            while (cb.charAt(0) == ' ') {
+                                                cb = cb.substring(1);
+                                            }
+                                            if (cb.indexOf(blog3) == 0) {
+                                                if (cb.substring(blog3.length, cb.length)=="true"){
+                                                    // blog1_4_3
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "1011"
+                                                            }
+                                                            else{
+                                                                return "1010"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_3
+                                                }
+                                                else{
+                                                    // blog1_4_4
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "1001"
+                                                            }
+                                                            else{
+                                                                return "1000"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_4
+                                                }
+                                            }
+                                        }
+                                        return "";
+                                        // blog1_3_2
+                                    }
+                                }
+                            }
+                            return "";
+                            // blog1_2
+                        }
+                        else{
+                            // blog2_2
+                            for(let i = 0; i < cba.length; i++) {
+                                let cb = cba[i];
+                                while (cb.charAt(0) == ' ') {
+                                    cb = cb.substring(1);
+                                }
+                                if (cb.indexOf(blog2) == 0) {
+                                    if (cb.substring(blog2.length, cb.length)=="true"){
+                                        // blog1_3_3
+                                        for(let i = 0; i < cba.length; i++) {
+                                            let cb = cba[i];
+                                            while (cb.charAt(0) == ' ') {
+                                                cb = cb.substring(1);
+                                            }
+                                            if (cb.indexOf(blog3) == 0) {
+                                                if (cb.substring(blog3.length, cb.length)=="true"){
+                                                    // blog1_4_5
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "0111"
+                                                            }
+                                                            else{
+                                                                return "0110"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_5
+                                                }
+                                                else{
+                                                    // blog1_4_6
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "0101"
+                                                            }
+                                                            else{
+                                                                return "0100"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_6
+                                                }
+                                            }
+                                        }
+                                        return "";
+                                        // blog1_3_3
+                                    }
+                                    else{
+                                        // blog1_3_4
+                                        for(let i = 0; i < cba.length; i++) {
+                                            let cb = cba[i];
+                                            while (cb.charAt(0) == ' ') {
+                                                cb = cb.substring(1);
+                                            }
+                                            if (cb.indexOf(blog3) == 0) {
+                                                if (cb.substring(blog3.length, cb.length)=="true"){
+                                                    // blog1_4_7
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "0011"
+                                                            }
+                                                            else{
+                                                                return "0010"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_7
+                                                }
+                                                else{
+                                                    // blog1_4_8
+                                                    for(let i = 0; i < cba.length; i++) {
+                                                        let cb = cba[i];
+                                                        while (cb.charAt(0) == ' ') {
+                                                            cb = cb.substring(1);
+                                                        }
+                                                        if (cb.indexOf(blog4) == 0) {
+                                                            if (cb.substring(blog4.length, cb.length)=="true"){
+                                                                return "0001"
+                                                            }
+                                                            else{
+                                                                return "0000"
+                                                            }
+                                                        }
+                                                    }
+                                                    return "";
+                                                    // blog1_4_8
+                                                }
+                                            }
+                                        }
+                                        return "";
+                                        // blog1_3_4
+                                    }
+                                }
+                            }
+                            return "";
+                            // blog2_2
+                        }
+                    }
+                }
+                return "";
+            }
+        </script>
+        <div class="sidebar-base" style="background-color: #262522;">
+            <div id="bruh" class="navigation-component">
+                <div class="nav-top-menu">
+                    <div class="menu">
+                        <a class="logo" href="/Project-Final-JSA32-hoa/html/index_fp.html" target="_self">
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse.png" alt="home" width="50px">
+                        </a>
+                        <div class="menu_2">
+                            <a href="#" class="am">menu</a>
+                            <div class="mini_menu">
+                                <a href="/Project-Final-JSA32-hoa/html/index_fp.html#cb">Top</a>
+                                <a href="/Project-Final-JSA32-hoa/html/index_fp.html#Info" style="font-size: 15px;">recommendation</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pcp">
+                        <a class="img_2" href="/Project-Final-JSA32-hoa/html/index_fp_2.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse_2.png" alt="home" width="50px">
+                        </a>
+                        <div class="pcp_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_2.html">present chess players</a>
+                        </div>
+                    </div>
+                    <div class="pacp">
+                        <a class="img_3" href="/Project-Final-JSA32-hoa/html/index_fp_3.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse_3" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="pacp_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" class="pacp_3">past chess players</a>
+                        </div>
+                    </div>
+                    <div class="shop">
+                        <a class="img_4" href="/Project-Final-JSA32-hoa/html/index_fp_4.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/shop.png" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="shop_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" class="shop_3">shop</a>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <a class="img_5" href="/Project-Final-JSA32-hoa/html/index_fp_5.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/news.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="news_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_5.html" class="news_3">news</a>
+                        </div>
+                    </div>
+                    <div class="rankgh">
+                        <a class="img_6" href="/Project-Final-JSA32-hoa/html/index_fp_6.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/rank.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="rankgh_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_6.html" class="rankgh_3">rank</a>
+                        </div>
+                    </div>
+                    <div class="bloggh">
+                        <a class="img_7" href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/blog.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="bloggh_2">
+                            <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" class="rankgh_3" style="height: 25px;">blog</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bottom-menu">
+                    <a class="rick" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                        <img src="/Project-Final-JSA32-hoa/other/image/rick.png" alt="home" width="50px">
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="container-base" id="cb">
+            <header  id="skibidi" class="top" >
+                <div class="name">
+                    <a href="/Project-Final-JSA32-hoa/html/index_fp.html" style="text-decoration: none; color: orange;">
+                        <span style="font-size: 30px;"><b>chessmaster</b></span>
+                    </a>
+                </div>
+                <div class="title">
+                    <h1 style="color: white;">blogs</h1>
+                </div>
+                <div class="all">
+                    <div id="blog_full" style="display:flex; width: 116px ; height: 50px; background-color:#efefef;position:absolute;top:-50px;text-align: center;align-items: center;justify-items: center;">
+                        <p id="full" style="padding-left: 16px; overflow:hidden;justify-self: center;height: 30px;">full of blog</p>
+                    </div>
+                    <div id="blog">
+                        <a href="/Project-Final-JSA32-hoa/html/blog/blog_create.html">
+                            <button style="width: 100px ; height: 40px;">Write a blog</button>
+                        </a>
+                    </div>
+                    <div id="acc" style="display:flex; width: 116px ; height: 50px; background-color:#efefef;position:absolute;top:-50px">
+                        <div class="word" style="overflow: hidden;">
+                            <p id="it" style="padding-left: 10px; overflow:hidden;">hada</p>
+                            <img src="/Project-Final-JSA32-hoa/other/image/user_bef-removebg-preview.png" id="imj" width="40px" height="40px" style="padding-top: 5px;margin-right: 10px;">
+                        </div>
+                        
+                        <div class="acc_2">
+                            <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" onclick="return log_out()">log out</a>
+                        </div>
+                    </div>
+                    <div id="Si_Su">
+                        <a href="/Project-Final-JSA32-hoa/html/Si_Su/Sign_Up.html">
+                            <button style="width: 100px ; height: 40px;" onclick="next()">Sign In/Sign Up</button>
+                        </a>
+                    </div>
+                    <div class="scroll">
+                        <div class="scrolldown">
+                            <button class="scrollbtn">list</button>
+                            <div class="content">
+                                <div class="a1">
+                                    <div class="a1_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Magnus_Carlsen.html">Magnus Carlsen</a>
+                                    </div>
+                                </div>
+                                <div class="a2">
+                                    <div class="a2_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Hikaru_Nakamura.html">Hikaru Nakamura</a>
+                                    </div>
+                                </div>
+                                <div class="a3">
+                                    <div class="a3_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Arjun_Erigaisi.html">Arjun Erigaisi</a>
+                                    </div>
+                                </div>
+                                <div class="a4">
+                                    <div class="a4_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">Bobby Fischer</a>
+                                    </div>
+                                </div>
+                                <div class="a5">
+                                    <div class="a5_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">Mikhail Tal</a>
+                                    </div>
+                                </div>
+                                <div class="a6">
+                                    <div class="a6_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Boris_Spassky.html">Boris Spassky</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main id="n_blog" id="News_s" style="background-color:#262522;justify-content: center;justify-items: center;">
+                <div id="big_blog1" style="margin-top: 60px;">
+                    <p id="t1" style="color: orange;font-size: 20px;">How Magnus Carlsen's Table Slam Sparked A Viral Chess Explosion</p>
+                    <p id="c1" style="color: white">kkukukukyukfyuk</p>
+                    <div id="bl_1" style="top: 495px;">
+                        <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" onclick="return delete_blog1()">delete blog</a>
+                    </div>
+                </div>
+                <div id="big_blog2" style="margin-top: 60px;">
+                    <p id="t2" style="color: orange;font-size: 20px;">Carlsen Advances After Nakamura Resigns In Winning Position</p>
+                    <p id="c2" style="color: white">kkukukukyukfyuk</p>
+                    <div id="bl_2" style="top: 930px;">
+                        <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" onclick="return delete_blog2()">delete blog</a>
+                    </div>
+                </div>
+                <div id="big_blog3" style="margin-top: 60px;">
+                    <p id="t3" style="color: orange;font-size: 20px;">The Nepo Gambit Is Born, Only Carlsen Wins</p>
+                    <p id="c3" style="color: white">kkukukukyukfyuk</p>
+                    <div id="bl_3" style="top: 1363px;">
+                        <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" onclick="return delete_blog3()">delete blog</a>
+                    </div>
+                </div>
+                <div id="big_blog4" style="margin-top: 60px;">
+                    <p id="t4" style="color: orange;font-size: 20px;">Carlsen's World Famous Jeans Auctioned For $36,100 After Bidding War</p>
+                    <p id="c4" style="color: white">kkukukukyukfyuk</p>
+                    <div id="bl_4" style="top: 1798px;">
+                        <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" onclick="return delete_blog4()">delete blog</a>
+                    </div>
+                </div>
+            </main>
+            <div class="mailing" style="background-color:gray ;">
+                <p style="margin-top: 20px; margin-left: 50px; border-radius: 25px;">website reviews</p>
+                <textarea name="meh" id="review" style="margin-left: 20px;width: 800px;height: 100px;border-radius: 5px;resize: none;"></textarea>
+                <button style="align-self: start;margin-top: 40px; margin-left: 60px; width: 80px;height: 30px; background-color:#1b75d0 ;border-radius: 5px;border-style:none;color: white;" onclick="review()">done</button>
+            </div>
+            <div id="mailing_1" style="background-color: gray;margin-top: 10px;">
+                <p id="mail_1" style="margin-left: 10px;"></p>
+                <div class="mail_2" style="top: 268px;">
+                    <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html#te" onclick="return delete_review()">delete review</a>
+                </div>
+            </div>
+            <footer id="other_2">
+                <div class="author">
+                    <a href="/Project-Final-JSA32-hoa/html/author_information.html" style="color: gray; text-decoration: none;"> author information</a>
+                </div>
+                <nav class="sm">
+                    <ul class="nav">
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/fb.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/in.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/re.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/ti.png" alt="">
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+            
+            <div class="year" id="te" style="display: flex; flex-direction: row-reverse; margin-bottom: 15px; margin-right: 15px;">
+                <span>@2025 Trịnh Thế Thái Hòa</span>     
+            </div>
+        </div>
+    </div>
+</body>
+</html>

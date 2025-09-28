@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Project-Final-JSA32-hoa/css/style_fp.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&family=Rowdies:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <title>Chessmaster</title>
+</head>
+<body style="background-color:#302e2b ;" onload="check();mailcheck();">
+    <div class="layout-base" >
+        <button onclick="scrollup()" style="border-radius: 50px; width: 50px; height: 50px; position: fixed ; right: 30px; bottom: 30px;">top</button>
+        <script>
+            function scrollup() {
+                document.documentElement.scrollTop = 0;
+            }
+            function next(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "back" + "=" + "3" + ";" + expires + ";path=/"
+            }
+            function log_out(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "state" + "=" + "false" + ";" + expires + ";path=/";
+                let h=check
+            }
+            function check(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                let state = getstate();
+                let u = getCookie_u_now()
+                if (state=="true"){
+                    document.getElementById("acc").style.position="static"
+                    document.getElementById("Si_Su").style.position="absolute"
+                    document.getElementById("Si_Su").style.top="-50px"
+                    document.getElementById("it").innerHTML=u
+                }
+                else if(state=="false"){
+                    document.getElementById("Si_Su").style.position="static"
+                    document.getElementById("acc").style.position="absolute"
+                    document.getElementById("acc").style.top="-50px"
+                }
+            }
+            function getstate() {
+                let newstate = "state" + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(newstate) == 0) {
+                        if (c.substring(newstate.length, c.length)=="true"){
+                            return "true"
+                        }
+                        else{
+                            return "false"
+                        }
+                    }
+                }
+                return "false";
+            }
+            function getCookie_u_now() {
+                let name = "u" + "=";
+                let ca = document.cookie.split(';');
+                for(let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) == ' ') {
+                        c = c.substring(1);
+                    }
+                    if (c.indexOf(name) == 0) {
+                        return c.substring(name.length, c.length);
+                    }
+                }
+                return "";
+            }
+            // review
+            function getCookie_t_now() {
+                let text_m = "re1" + "=";
+                let cta = document.cookie.split(';');
+                for(let i = 0; i < cta.length; i++) {
+                    let ct = cta[i];
+                    while (ct.charAt(0) == ' ') {
+                        ct = ct.substring(1);
+                    }
+                    if (ct.indexOf(text_m) == 0) {
+                        return ct.substring(text_m.length, ct.length);
+                    }
+                }
+                return "";
+            }
+            function mailcheck(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                let state_mail = mailstate();
+                let t_mail = getCookie_t_now();
+                if (state_mail=="false"){
+                    document.getElementById("mailing_1").style.top="-400px"
+                    document.getElementById("other_1").style.marginTop="0px"
+                }
+                else if(state_mail=="true"){
+                    document.getElementById("mailing_1").style.top="1890px"
+                    document.getElementById("other_1").style.marginTop="300px"
+                    document.getElementById("mail_1").innerHTML=t_mail
+                }
+            }
+            function mailstate(){
+                let mail = "b1" + "=";
+                let cga = document.cookie.split(';');
+                for(let i = 0; i < cga.length; i++) {
+                    let cg = cga[i];
+                    while (cg.charAt(0) == ' ') {
+                        cg = cg.substring(1);
+                    }
+                    if (cg.indexOf(mail) == 0) {
+                        if (cg.substring(mail.length, cg.length)=="true"){
+                            return "true"
+                        }
+                        else{
+                            return "false"
+                        }
+                    }
+                }
+                return "";
+
+            }
+            function review(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                const re = document.getElementById("review").value;
+                if (re == ""){
+                    alert("please type something")
+                    return ""
+                }
+                document.cookie = "re1" + "=" + re + ";" + expires + ";path=/";
+                document.cookie = "b1" + "=" + true + ";" + expires + ";path=/";
+                let gfc = mailcheck()
+                alert(re)
+            }
+            function delete_review(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                document.cookie = "b1" + "=" + false + ";" + expires + ";path=/";
+                let gfc = mailcheck()
+            }
+        </script>
+        <div class="sidebar-base" style="background-color: #262522;">
+            <div id="bruh" class="navigation-component">
+                <div class="nav-top-menu">
+                    <div class="menu">
+                        <a class="logo" href="/Project-Final-JSA32-hoa/html/index_fp.html" target="_self">
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse.png" alt="home" width="50px">
+                        </a>
+                        <div class="menu_2">
+                            <a href="#" class="am">menu</a>
+                            <div class="mini_menu">
+                                <a href="/Project-Final-JSA32-hoa/html/index_fp.html#skibidi">Top</a>
+                                <a href="/Project-Final-JSA32-hoa/html/index_fp.html#Info" style="font-size: 15px;">recommendation</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pcp">
+                        <a class="img_2" href="/Project-Final-JSA32-hoa/html/index_fp_2.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse_2.png" alt="home" width="50px">
+                        </a>
+                        <div class="pcp_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_2.html">present chess players</a>
+                        </div>
+                    </div>
+                    <div class="pacp">
+                        <a class="img_3" href="/Project-Final-JSA32-hoa/html/index_fp_3.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/horse_3" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="pacp_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" class="pacp_3">past chess players</a>
+                        </div>
+                    </div>
+                    <div class="shop">
+                        <a class="img_4" href="/Project-Final-JSA32-hoa/html/index_fp_4.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/shop.png" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="shop_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" class="shop_3">shop</a>
+                        </div>
+                    </div>
+                    <div class="news">
+                        <a class="img_5" href="/Project-Final-JSA32-hoa/html/index_fp_5.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/news.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="news_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_5.html" class="news_3">news</a>
+                        </div>
+                    </div>
+                    <div class="rankgh">
+                        <a class="img_6" href="/Project-Final-JSA32-hoa/html/index_fp_6.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/rank.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="rankgh_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_6.html" class="rankgh_3">rank</a>
+                        </div>
+                    </div>
+                    <div class="bloggh">
+                        <a class="img_7" href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" target="_self">   
+                            <img src="/Project-Final-JSA32-hoa/other/image/blog.jpg" alt="home" width="50px" height="50px">
+                        </a>
+                        <div class="bloggh_2">
+                            <a href="/Project-Final-JSA32-hoa/html/blog/index_fp_7.html" class="rankgh_3" style="height: 25px;">blog</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="nav-bottom-menu">
+                   <a class="rick" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">
+                        <img src="/Project-Final-JSA32-hoa/other/image/rick.png" alt="home" width="50px">
+                    </a> 
+                </div>
+            </div>
+        </div>
+        <div class="container-base">
+            <header  id="skibidi" class="top" >
+                <div class="name">
+                    <a href="/Project-Final-JSA32-hoa/html/index_fp.html" style="text-decoration: none; color: orange;">
+                        <span style="font-size: 30px;"><b>chessmaster</b></span>
+                    </a>
+                </div>
+                <div class="all">
+                    <div id="acc" style="display:flex; width: 116px ; height: 50px; background-color:#efefef;position:absolute;top:-50px">
+                        <div class="word" style="overflow: hidden;">
+                            <p id="it" style="padding-left: 10px; overflow:hidden;">hada</p>
+                            <img src="/Project-Final-JSA32-hoa/other/image/user_bef-removebg-preview.png" id="imj" width="40px" height="40px" style="padding-top: 5px;margin-right: 10px;">
+                        </div>
+                        
+                        <div class="acc_2">
+                            <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html" onclick="return log_out()">log out</a>
+                        </div>
+                    </div>
+                    <div id="Si_Su">
+                        <a href="/Project-Final-JSA32-hoa/html/Si_Su/Sign_Up.html">
+                            <button style="width: 100px ; height: 40px;" onclick="next()">Sign In/Sign Up</button>
+                        </a>
+                    </div>
+                    <div class="scroll">
+                        <div class="scrolldown">
+                            <button class="scrollbtn">list</button>
+                            <div class="content">
+                                <div class="a1">
+                                    <div class="a1_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Magnus_Carlsen.html">Magnus Carlsen</a>
+                                    </div>
+                                </div>
+                                <div class="a2">
+                                    <div class="a2_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Hikaru_Nakamura.html">Hikaru Nakamura</a>
+                                    </div>
+                                </div>
+                                <div class="a3">
+                                    <div class="a3_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Arjun_Erigaisi.html">Arjun Erigaisi</a>
+                                    </div>
+                                </div>
+                                <div class="a4">
+                                    <div class="a4_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">Bobby Fischer</a>
+                                    </div>
+                                </div>
+                                <div class="a5">
+                                    <div class="a5_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">Mikhail Tal</a>
+                                    </div>
+                                </div>
+                                <div class="a6">
+                                    <div class="a6_2">
+                                        <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Boris_Spassky.html">Boris Spassky</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <main class="info">
+                <span class="recommendation" style="color: orange; font-size: 40px;">Past chess player</span>
+                <div class="info_1" style="color:#c3c2c1; background-color: #262522; padding: 20px;">
+                    <span><h3>1. Bobby Fischer</h3></span>
+                    <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Bobby_Fischer.html">
+                        <img style="float: left;" src="/Project-Final-JSA32-hoa/other/image/bf.jpg" alt="">
+                    </a>
+                    <p style="float: right; font-size: 30px;">creator of chess960</p>
+                </div>
+                <div class="info_2" style="color: #c3c2c1; background-color: #262522; padding: 20px;">
+                    <span><h3><b>2. Mikhail Tal</b></h3></span>
+                    <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Mikhail_Tal.html">
+                        <img src="/Project-Final-JSA32-hoa/other/image/mt.jpg" alt="">
+                    </a>
+                    <p style="font-size: 30px; float: left;">"the Magician from Riga"</p>
+                </div>
+                <div class="info_3" style="color:#c3c2c1; background-color: #262522; padding: 20px;">
+                    <span><h3><b>3. Boris Spassky</b></h3></span>
+                    <a href="/Project-Final-JSA32-hoa/html/grand_info.html/Boris_Spassky.html">
+                        <img style="float: left;" src="/Project-Final-JSA32-hoa/other/image/bs.jpg" alt="">
+                    </a>
+                    <p style="float: right; font-size: 30px;">Bobby Fischer greatest enemy</p>
+                </div>
+                <div class="info_4"></div>
+                <div class="info_5"></div>
+                <div class="info_6"></div>
+            </main>
+            <div class="mailing" style="background-color:gray ;">
+                <p style="margin-top: 20px; margin-left: 50px; border-radius: 25px;">website reviews</p>
+                <textarea name="meh" id="review" style="margin-left: 20px;width: 800px;height: 100px;border-radius: 5px;resize: none;"></textarea>
+                <button style="align-self: start;margin-top: 40px; margin-left: 60px; width: 80px;height: 30px; background-color:#1b75d0 ;border-radius: 5px;border-style:none;color: white;" onclick="review()">done</button>
+            </div>
+            <div id="mailing_1" style="background-color: gray;">
+                <p id="mail_1" style="margin-left: 10px;"></p>
+                <div class="mail_2" style="top: 268px;">
+                    <a href="/Project-Final-JSA32-hoa/html/index_fp_3.html#te" onclick="return delete_review()">delete review</a>
+                </div>
+            </div>
+            <footer id="other_1">
+                <div class="author">
+                    <a href="/Project-Final-JSA32-hoa/html/author_information.html" style="color: gray; text-decoration: none;"> author information</a>
+                </div>
+                <nav class="sm">
+                    <ul class="nav">
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/fb.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/in.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/re.png" alt="">
+                        </li>
+                        <li class="lg">
+                            <img src="/Project-Final-JSA32-hoa/other/image/ti.png" alt="">
+                        </li>
+                    </ul>
+                </nav>
+            </footer>
+            
+            <div class="year" id="te" style="display: flex; flex-direction: row-reverse; margin-bottom: 15px; margin-right: 15px;">
+                <span>@2025 Trịnh Thế Thái Hòa</span>     
+            </div>
+        </div>
+    </div>
+</body>
+</html>
