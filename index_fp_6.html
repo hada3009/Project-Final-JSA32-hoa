@@ -15,89 +15,8 @@
 <body style="background-color:#302e2b ;" onload="check();mailcheck();">
     <div class="layout-base" >
         <button onclick="scrollup()" style="border-radius: 50px; width: 50px; height: 50px; position: fixed ; right: 30px; bottom: 30px;">top</button>
+        <script src="/assets/javascript/general_check.js"></script>
         <script>
-            function scrollup() {
-                document.documentElement.scrollTop = 0;
-            }
-            function next(){
-                const d = new Date();
-                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-                let expires = "expires="+d.toUTCString();
-                document.cookie = "back" + "=" + "6" + ";" + expires + ";path=/"
-            }
-            function log_out(){
-                const d = new Date();
-                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-                let expires = "expires="+d.toUTCString();
-                document.cookie = "state" + "=" + "false" + ";" + expires + ";path=/";
-                let h=check
-            }
-            function check(){
-                const d = new Date();
-                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-                let expires = "expires="+d.toUTCString();
-                let state = getstate();
-                let u = getCookie_u_now()
-                if (state=="true"){
-                    document.getElementById("acc").style.position="static"
-                    document.getElementById("Si_Su").style.position="absolute"
-                    document.getElementById("Si_Su").style.top="-50px"
-                    document.getElementById("it").innerHTML=u
-                }
-                else if(state=="false"){
-                    document.getElementById("Si_Su").style.position="static"
-                    document.getElementById("acc").style.position="absolute"
-                    document.getElementById("acc").style.top="-50px"
-                }
-            }
-            function getstate() {
-                let newstate = "state" + "=";
-                let ca = document.cookie.split(';');
-                for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                    }
-                    if (c.indexOf(newstate) == 0) {
-                        if (c.substring(newstate.length, c.length)=="true"){
-                            return "true"
-                        }
-                        else{
-                            return "false"
-                        }
-                    }
-                }
-                return "false";
-            }
-            function getCookie_u_now() {
-                let name = "u" + "=";
-                let ca = document.cookie.split(';');
-                for(let i = 0; i < ca.length; i++) {
-                    let c = ca[i];
-                    while (c.charAt(0) == ' ') {
-                        c = c.substring(1);
-                    }
-                    if (c.indexOf(name) == 0) {
-                        return c.substring(name.length, c.length);
-                    }
-                }
-                return "";
-            }
-            // review
-            function getCookie_t_now() {
-                let text_m = "re1" + "=";
-                let cta = document.cookie.split(';');
-                for(let i = 0; i < cta.length; i++) {
-                    let ct = cta[i];
-                    while (ct.charAt(0) == ' ') {
-                        ct = ct.substring(1);
-                    }
-                    if (ct.indexOf(text_m) == 0) {
-                        return ct.substring(text_m.length, ct.length);
-                    }
-                }
-                return "";
-            }
             function mailcheck(){
                 const d = new Date();
                 d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
@@ -109,114 +28,73 @@
                     document.getElementById("other_1").style.marginTop="0px"
                 }
                 else if(state_mail=="true"){
-                    document.getElementById("mailing_1").style.top="850px"
-                    document.getElementById("other_1").style.marginTop="310px"
+                    document.getElementById("mailing_1").style.top="890px"
+                    document.getElementById("other_1").style.marginTop="320px"
                     document.getElementById("mail_1").innerHTML=t_mail
                 }
-            }
-            function mailstate(){
-                let mail = "b1" + "=";
-                let cga = document.cookie.split(';');
-                for(let i = 0; i < cga.length; i++) {
-                    let cg = cga[i];
-                    while (cg.charAt(0) == ' ') {
-                        cg = cg.substring(1);
-                    }
-                    if (cg.indexOf(mail) == 0) {
-                        if (cg.substring(mail.length, cg.length)=="true"){
-                            return "true"
-                        }
-                        else{
-                            return "false"
-                        }
-                    }
-                }
-                return "";
-
-            }
-            function review(){
-                const d = new Date();
-                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-                let expires = "expires="+d.toUTCString();
-                const re = document.getElementById("review").value;
-                if (re == ""){
-                    alert("please type something")
-                    return ""
-                }
-                document.cookie = "re1" + "=" + re + ";" + expires + ";path=/";
-                document.cookie = "b1" + "=" + true + ";" + expires + ";path=/";
-                let gfc = mailcheck()
-                alert(re)
-            }
-            function delete_review(){
-                const d = new Date();
-                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
-                let expires = "expires="+d.toUTCString();
-                document.cookie = "b1" + "=" + false + ";" + expires + ";path=/";
-                let gfc = mailcheck()
             }
         </script>
         <div class="sidebar-base" style="background-color: #262522;">
             <div id="bruh" class="navigation-component">
                 <div class="nav-top-menu">
                     <div class="menu">
-                        <a class="logo" href="/html/index_fp.html" target="_self">
+                        <a class="logo" href="/index.html" target="_self">
                             <img src="/assets/other/image/horse.png" alt="home" width="50px">
                         </a>
                         <div class="menu_2">
                             <a href="#" class="am">menu</a>
                             <div class="mini_menu">
-                                <a href="/html/index_fp.html#cb">Top</a>
-                                <a href="/html/index_fp.html#Info" style="font-size: 15px;">recommendation</a>
+                                <a href="/index.html#cb">Top</a>
+                                <a href="/index.html#Info" style="font-size: 15px;">recommendation</a>
                             </div>
                         </div>
                     </div>
                     <div class="pcp">
-                        <a class="img_2" href="/html/index_fp_2.html" target="_self">   
+                        <a class="img_2" href="/index_fp_2.html" target="_self">   
                             <img src="/assets/other/image/horse_2.png" alt="home" width="50px">
                         </a>
                         <div class="pcp_2">
-                            <a href="/html/index_fp_2.html">present chess players</a>
+                            <a href="/index_fp_2.html">present chess players</a>
                         </div>
                     </div>
                     <div class="pacp">
-                        <a class="img_3" href="/html/index_fp_3.html" target="_self">   
+                        <a class="img_3" href="/index_fp_3.html" target="_self">   
                             <img src="/assets/other/image/horse_3" alt="home" width="50px" height="50px">
                         </a>
                         <div class="pacp_2">
-                            <a href="/html/index_fp_3.html" class="pacp_3">past chess players</a>
+                            <a href="/index_fp_3.html" class="pacp_3">past chess players</a>
                         </div>
                     </div>
                     <div class="shop">
-                        <a class="img_4" href="/html/index_fp_4.html" target="_self">   
+                        <a class="img_4" href="/index_fp_4.html" target="_self">   
                             <img src="/assets/other/image/shop.png" alt="home" width="50px" height="50px">
                         </a>
                         <div class="shop_2">
-                            <a href="/html/index_fp_3.html" class="shop_3">shop</a>
+                            <a href="/index_fp_3.html" class="shop_3">shop</a>
                         </div>
                     </div>
                     <div class="news">
-                        <a class="img_5" href="/html/index_fp_5.html" target="_self">   
+                        <a class="img_5" href="/index_fp_5.html" target="_self">   
                             <img src="/assets/other/image/news.jpg" alt="home" width="50px" height="50px">
                         </a>
                         <div class="news_2">
-                            <a href="/html/index_fp_5.html" class="news_3">news</a>
+                            <a href="/index_fp_5.html" class="news_3">news</a>
                         </div>
                     </div>
                     <div class="rankgh">
-                        <a class="img_6" href="/html/index_fp_6.html" target="_self">   
+                        <a class="img_6" href="/index_fp_6.html" target="_self">   
                             <img src="/assets/other/image/rank.jpg" alt="home" width="50px" height="50px">
                         </a>
                         <div class="rankgh_2">
-                            <a href="/html/index_fp_6.html" class="rankgh_3">rank</a>
+                            <a href="/index_fp_6.html" class="rankgh_3">rank</a>
                         </div>
                     </div>
                     <div class="bloggh">
-                        <a class="img_7" href="/html/blog/index_fp_7.html" target="_self">   
+                        <a class="img_7" href="/blog/index_fp_7.html" target="_self">   
                             <img src="/assets/other/image/blog.jpg" alt="home" width="50px" height="50px">
                         </a>
                         <div class="bloggh_2">
-                            <a href="/html/blog/index_fp_7.html" class="rankgh_3" style="height: 25px;">blog</a>
+                            <a href="/blog/index_fp_7.html" class="rankgh_3" style="height: 25px;">blog</a>
                         </div>
                     </div>
                 </div>
@@ -230,7 +108,7 @@
         <div class="container-base" id="cb">
             <header  id="skibidi" class="top" >
                 <div class="name">
-                    <a href="/html/index_fp.html" style="text-decoration: none; color: orange;">
+                    <a href="/index.html" style="text-decoration: none; color: orange;">
                         <span style="font-size: 30px;"><b>chessmaster</b></span>
                     </a>
                 </div>
@@ -245,11 +123,11 @@
                         </div>
                         
                         <div class="acc_2">
-                            <a href="/html/index_fp_4.html" onclick="return log_out()">log out</a>
+                            <a href="/index_fp_4.html" onclick="return log_out()">log out</a>
                         </div>
                     </div>
                     <div id="Si_Su">
-                        <a href="/html/Si_Su/Sign_Up.html">
+                        <a href="/Si_Su/Sign_Up.html">
                             <button style="width: 100px ; height: 40px;" onclick="next()">Sign In/Sign Up</button>
                         </a>
                     </div>
@@ -259,32 +137,32 @@
                             <div class="content">
                                 <div class="a1">
                                     <div class="a1_2">
-                                        <a href="/html/grand_info.html/Magnus_Carlsen.html">Magnus Carlsen</a>
+                                        <a href="/grand_info.html/Magnus_Carlsen.html">Magnus Carlsen</a>
                                     </div>
                                 </div>
                                 <div class="a2">
                                     <div class="a2_2">
-                                        <a href="/html/grand_info.html/Hikaru_Nakamura.html">Hikaru Nakamura</a>
+                                        <a href="/grand_info.html/Hikaru_Nakamura.html">Hikaru Nakamura</a>
                                     </div>
                                 </div>
                                 <div class="a3">
                                     <div class="a3_2">
-                                        <a href="/html/grand_info.html/Arjun_Erigaisi.html">Arjun Erigaisi</a>
+                                        <a href="/grand_info.html/Arjun_Erigaisi.html">Arjun Erigaisi</a>
                                     </div>
                                 </div>
                                 <div class="a4">
                                     <div class="a4_2">
-                                        <a href="/html/grand_info.html/Bobby_Fischer.html">Bobby Fischer</a>
+                                        <a href="/grand_info.html/Bobby_Fischer.html">Bobby Fischer</a>
                                     </div>
                                 </div>
                                 <div class="a5">
                                     <div class="a5_2">
-                                        <a href="/html/grand_info.html/Bobby_Fischer.html">Mikhail Tal</a>
+                                        <a href="/grand_info.html/Bobby_Fischer.html">Mikhail Tal</a>
                                     </div>
                                 </div>
                                 <div class="a6">
                                     <div class="a6_2">
-                                        <a href="/html/grand_info.html/Boris_Spassky.html">Boris Spassky</a>
+                                        <a href="/grand_info.html/Boris_Spassky.html">Boris Spassky</a>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +172,7 @@
             </header>
             <main class="n_rank" id="ranks" style="background-color:#e3e3e3;">
                 <div class="rank">
-                    <table class="rank_table" style="width: 100%;border-color: gray; padding: 10px;">
+                    <table class="rank_table" style="width: 100%;border-color: gray; padding: 10px;margin-bottom: 20px;">
                         <thead>
                             <tr>
                                 <th>#</th>
@@ -418,12 +296,12 @@
             <div id="mailing_1" style="background-color: gray; top: 1900px;">
                 <p id="mail_1" style="margin-left: 10px;"></p>
                 <div class="mail_2" style="top: 263px;">
-                    <a href="/html/index_fp_6.html#te" onclick="return delete_review()">delete review</a>
+                    <a href="/index_fp_6.html#te" onclick="return delete_review()">delete review</a>
                 </div>
             </div>
             <footer id="other_1">
                 <div class="author">
-                    <a href="/html/author_information.html" style="color: gray; text-decoration: none;"> author information</a>
+                    <a href="/author_information.html" style="color: gray; text-decoration: none;"> author information</a>
                 </div>
                 <nav class="sm">
                     <ul class="nav">
