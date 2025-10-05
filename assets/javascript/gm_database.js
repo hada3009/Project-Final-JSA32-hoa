@@ -21,7 +21,7 @@ let info_gm_1 =  '{"info":[' +
             '{Boris Vasilyevich Spassky (Russian: Борис Васильевич Спасский; January 30, 1937 - February 27, 2025) was a Russian chess grandmaster who was the tenth World Chess Champion, holding the title from 1969 to 1972. Spassky played three world championship matches: he lost to Tigran Petrosian in 1966; defeated Petrosian in 1969 to become world champion; then lost to Bobby Fischer in a famous match in 1972.}]}';
 let info_gm_2 =  '{"info":[' +
             '{A chess prodigy, Carlsen finished first in the C group of the Corus chess tournament shortly after he turned 13 and earned the title of grandmaster a few months later. At 15, he won the Norwegian Chess Championship, and later became the youngest ever player to qualify for the Candidates Tournament in 2005. At 17, he finished joint first in the top group of Corus. He surpassed a rating of 2800 at 18, the youngest at the time to do so. In 2010, at 19, he reached No.1 in the FIDE world rankings, the youngest person ever to do so.},' +
-            '{Nakamura has represented the United States at seven Chess Olympiads (2006, 2008, 2010, 2012, 2014, 2016, 2018), securing a team gold medal and two team bronze medals, and participated in three Candidates Tournaments, finishing second in 2024 edition, fourth in 2022 edition, and seventh in the 2016 edition. In May 2014, when FIDE began publishing official rapid and blitz chess ratings, Nakamura ranked No. 1 in the world on both lists; he has remained at or near the No. 1 rank in rapid and blitz ever since.},' +
+            '{Nakamura has represented the United States at seven Chess Olympiads (2006, 2008, 2010, 2012, 2014, 2016, 2018), securing a team gold medal and two team bronze medals, and participated in three Candidates Tournaments, finishing second in 2024 edition, fourth in 2022 edition, and seventh in the 2016 edition. In May 2014, when FIDE began publishing official rapid and blitz chess ratings, Nakamura ranked No. 1 in the world on both Lists; he has remained at or near the No. 1 rank in rapid and blitz ever since.},' +
             '{},' +
             '{In 1975, Fischer refused to defend his title when an agreement could not be reached with FIDE, international governing body of chess, over the match conditions. Consequently, the Soviet challenger Anatoly Karpov was named World Champion by default. Fischer subsequently disappeared from the public eye, though occasional reports of erratic behavior emerged. In 1992, he reemerged to win an unofficial rematch against Spassky. It was held in Yugoslavia, which at the time was under an embargo of the United Nations. His participation led to a conflict with the US federal government, which warned Fischer that his participation in the match would violate an executive order imposing US sanctions on Yugoslavia. The US government ultimately issued a warrant for his arrest; subsequently, Fischer lived as an émigré. In 2004, he was arrested in Japan and held for several months for using a passport that the US government had revoked. Eventually, he was granted Icelandic citizenship by a special act of the Althing, allowing him to live there until his death in 2008.},' +
             '{His nickname was "Misha", a diminutive for Mikhail, and he earned the nickname "The Magician from Riga". Both The Mammoth Book of the Greatest Chess Games of the world and Modern Chess Brilliancies include more games by Tal than any other player. He also held the record for the longest unbeaten streak in competitive chess history with 95 games (46 wins, 49 draws) between 23 October 1973 and 16 October 1974, until the streak of Ding Liren of 100 games (29 wins, 71 draws) between 9 August 2017 and 11 November 2018. In addition, Tal was a highly regarded chess writer.},' +
@@ -50,9 +50,9 @@ const gm_4 = JSON.parse(info_gm_4)
 
 function gm_info_selector(){
     let info_state = "info_state" + "=";
-    let list_info = document.cookie.split(';');
-    for(let i = 0; i < list_info.length; i++) {
-        let info_spa = list_info[i];
+    let List_info = document.cookie.split(';');
+    for(let i = 0; i < List_info.length; i++) {
+        let info_spa = List_info[i];
         while (info_spa.charAt(0) == ' ') {
             info_spa = info_spa.substring(1);
         }
