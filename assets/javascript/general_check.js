@@ -129,3 +129,10 @@ function delete_review(){
     document.cookie = "b1" + "=" + false + ";" + expires + ";path=/";
     let gfc = mailcheck()
 }
+
+function note_state(number){
+    const d = new Date();
+    d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+    let expires = "expires="+d.toUTCString();
+    document.cookie = "info" + "=" + number + ";" + expires + ";path=/";
+}
