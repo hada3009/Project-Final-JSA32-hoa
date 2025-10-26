@@ -11,10 +11,25 @@
 </head>
 <body style="background-color:#302e2b ;" onload="check();mailcheck();">
     <div class="layout-base" >
-        <button onclick="scrollup()" style="border-radius: 50px; width: 50px; height: 50px; position: fixed ; right: 30px; bottom: 30px;">top</button>
+        <button onclick="scrollup()" style="border-radius: 50px; width: 50px; height: 50px; position: fixed ; right: 30px; bottom: 30px;"><img src="/assets/other/image/arrow_sm.png" alt=""></button>
         <script src="/assets/javascript/general_check.js"></script>
         <script>
-            
+            function mailcheck(){
+                const d = new Date();
+                d.setTime(d.getTime() + (365 * 24 * 60 * 60 * 1000));
+                let expires = "expires="+d.toUTCString();
+                let state_mail = mailstate();
+                let t_mail = getCookie_t_now();
+                if (state_mail=="false"){
+                    document.getElementById("mailing_1").style.top="-400px"
+                    document.getElementById("other_1").style.marginTop="0px"
+                }
+                else if(state_mail=="true"){
+                    document.getElementById("mailing_1").style.top="6280px"
+                    document.getElementById("other_1").style.marginTop="320px"
+                    document.getElementById("mail_1").innerHTML=t_mail
+                }
+            }
         </script>
         <div class="sidebar-base" style="background-color: #262522;">
             <div id="bruh" class="navigation-component">
